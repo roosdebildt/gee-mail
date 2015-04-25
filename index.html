@@ -7,12 +7,18 @@
         // ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE. 
         // for simplicity, store window.geemails in a variable
         var emails = window.geemails;
-        var inbox = document.getElementById("inbox");
 
         // access data from the emails variable
         for(var i=0; i<emails.length; i++){
         	var oneEmail = (emails[i]);
         	console.log(oneEmail);
+
+        	// inbox.appendChild(oneEmail);
+
+        	var node = document.createElement("TR");                 // Create a <tr> node
+			var textnode = document.createTextNode("Water");         // Create a text node
+			node.appendChild(textnode);                              // Append the text to <table>
+			document.getElementById("inbox").appendChild(node);     // Append <tr> to <table> with id="inbox"
         	}
       };
     </script>
@@ -23,11 +29,7 @@
 		</header>
 		<div class="container" id="main">
 			<table id="inbox">
-				<tr>
-				   <th>Sender</th>
-				   <th>Subject</th>
-				   <th>Date</th>
-				</tr>
+				<tr>one list item</tr>
 			</table>
 		</div>
 	</body>
