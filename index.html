@@ -8,17 +8,43 @@
         // for simplicity, store window.geemails in a variable
         var emails = window.geemails;
 
+
         // access data from the emails variable
-        for(var i=0; i<emails.length; i++){
+         for(var i=0; i<emails.length; i++){
         	var oneEmail = (emails[i]);
         	console.log(oneEmail);
 
-        	// inbox.appendChild(oneEmail);
+        	//make the emails appear in a table
+        	var tableRow = document.createElement("TR");
 
-        	var node = document.createElement("TR");                 // Create a <tr> node
-			var textnode = document.createTextNode("Water");         // Create a text node
-			node.appendChild(textnode);                              // Append the text to <table>
-			document.getElementById("inbox").appendChild(node);     // Append <tr> to <table> with id="inbox"
+        	//show sender in a column
+        	var senderCell = document.createElement("TD");
+        	senderCell.innerHTML = oneEmail.sender;
+        	tableRow.appendChild(senderCell);
+        	
+        	//show subject in a column
+        	var subjectCell = document.createElement("TD");
+        	subjectCell.innerHTML = oneEmail.subject;
+        	var subjectAppend = tableRow.appendChild(subjectCell);
+
+        	//trying to target the subjects and make the body of the message show up below the subject. but I don't really know how to target the subject without the  getElementById...
+        	subjectAppend.addEventListener("click", function(){
+        		console.log("this works");
+
+        		//this was just an experiment. I don't know how to make it show up only once, after I have targeted the subject <td> to make it show up in there
+        		var bodyParagraph = document.createElement("P");
+        		bodyParagraph.innerHTML = oneEmail.body;
+        		subjectAppend.appendChild(bodyParagraph);
+				})
+
+        	//show date in a column
+        	var dateCell = document.createElement("TD");
+        	dateCell.innerHTML = oneEmail.date;
+        	tableRow.appendChild(dateCell);
+
+
+        	//create a row for each email
+        	document.getElementById("inbox").appendChild(tableRow);
         	}
       };
     </script>
@@ -29,7 +55,11 @@
 		</header>
 		<div class="container" id="main">
 			<table id="inbox">
-				<tr>one list item</tr>
+				<tr class="titles">
+					<td>Sender</td>
+					<td>Subject</td>
+					<td>Date</td>
+				</tr>
 			</table>
 		</div>
 	</body>
