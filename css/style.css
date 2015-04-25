@@ -1,0 +1,11 @@
+/* BASE */
+
+body {
+	margin: 0;
+	font-family: 'Open Sans';
+}
+
+header {
+	background-color: #F1F1F1;
+	border-bottom: 1px solid #E5E5E5;
+}

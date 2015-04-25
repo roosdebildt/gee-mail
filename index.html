@@ -5,14 +5,30 @@
     <script>
       window.onload = function(){
         // ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE. 
-        // We have to use window.onload so your JavaScript doesn't execute until the page has loaded and all HTML has been downloaded to your browser
-        
+        // for simplicity, store window.geemails in a variable
+        var emails = window.geemails;
+        var inbox = document.getElementById("inbox");
+
+        // access data from the emails variable
+        for(var i=0; i<emails.length; i++){
+        	var oneEmail = (emails[i]);
+        	console.log(oneEmail);
+        	}
       };
     </script>
 	</head>
 	<body>
+		<header>
+			<h1>Gee-Mail</h1>
+		</header>
 		<div class="container" id="main">
-			Build Me!
+			<table id="inbox">
+				<tr>
+				   <th>Sender</th>
+				   <th>Subject</th>
+				   <th>Date</th>
+				</tr>
+			</table>
 		</div>
 	</body>
 </html>
