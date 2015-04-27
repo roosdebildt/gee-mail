@@ -64,14 +64,17 @@
         var pushNewEmail = function() {
             var newMail = getNewMessage();
             addEmailToTable(newMail);
+            window.geemails.push(newMail);
+            updateCounter();
         } 
 
-            // create e-mail counter
+        var updateCounter = function() {
             var number = emails.length;
             var counter = document.getElementById("counter");
-            var numberText = document.createTextNode(number);
-            counter.appendChild(numberText);
+            counter.innerHTML = number;
+        }
 
+        updateCounter();
 
             //Push a new email every 2 seconds
             //setInterval(pushNewEmail, 2000);
