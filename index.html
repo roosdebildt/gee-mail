@@ -63,13 +63,16 @@
             var date = newMail.date;
             var body = newMail.body;
 
+            var textSender = document.createTextNode(sender);
+            var textSubject = document.createTextNode(subject);
+            var textDate = document.createTextNode(date);
+            var textBody = document.createTextNode(body);
+
             var inbox = document.getElementById("inbox");
             var createRow = document.createElement("TR");
             var createCell = document.createElement("TD");
-            var textSender = document.createTextNode(sender);
-            var createSender = createCell.appendChild(textSender);
 
-            inbox.appendChild(createSender);
+            inbox.appendChild(createRow).appendChild(createCell).appendChild(textSender);
 
             // setInterval(newMail, 500);
 
