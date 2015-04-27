@@ -10,9 +10,9 @@
 
 
         // access data from the emails variable
-         for(var i=0; i<emails.length; i++){
-        	var oneEmail = (emails[i]);
-        	console.log(oneEmail);
+        for(var i=0; i<emails.length; i++){
+        	
+            var oneEmail = (emails[i]);
 
         	//make the emails appear in a table
         	var tableRow = document.createElement("TR");
@@ -47,11 +47,31 @@
         	document.getElementById("inbox").appendChild(tableRow);
         	}
 
+
             // create e-mail counter
             var number = emails.length;
             var counter = document.getElementById("counter");
             var numberText = document.createTextNode(number);
             counter.appendChild(numberText);
+
+            //create interval for new geemails
+            var newMail = getNewMessage();
+            console.log(newMail);
+
+            var sender = newMail.sender;
+            var subject = newMail.subject;
+            var date = newMail.date;
+            var body = newMail.body;
+
+            var inbox = document.getElementById("inbox");
+            var createRow = document.createElement("TR");
+            var createCell = document.createElement("TD");
+            var textSender = document.createTextNode(sender);
+            var createSender = createCell.appendChild(textSender);
+
+            inbox.appendChild(createSender);
+
+            // setInterval(newMail, 500);
 
       };
     </script>
