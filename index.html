@@ -32,9 +32,9 @@
         		console.log("this works");
 
         		//this was just an experiment. I don't know how to make it show up only once, after I have targeted the subject <td> to make it show up in there
-        		var bodyParagraph = document.createElement("P");
-        		bodyParagraph.innerHTML = oneEmail.body;
-        		subjectAppend.appendChild(bodyParagraph);
+        		var bodyRow = document.createElement("TR");
+        		bodyRow.innerHTML = oneEmail.body;
+        		this.appendChild(bodyRow);
 				})
 
         	//show date in a column
@@ -46,12 +46,20 @@
         	//create a row for each email
         	document.getElementById("inbox").appendChild(tableRow);
         	}
+
+            // create e-mail counter
+            var number = emails.length;
+            var counter = document.getElementById("counter");
+            var numberText = document.createTextNode(number);
+            counter.appendChild(numberText);
+
       };
     </script>
 	</head>
 	<body>
 		<header>
 			<h1>Gee-Mail</h1>
+            <h3>You have <span id="counter"></span> gee-mails!</h3>
 		</header>
 		<div class="container" id="main">
 			<table id="inbox">
