@@ -60,6 +60,11 @@
 
         }
 
+        //This function pushes a new email into the list/table
+        var pushNewEmail = function() {
+            var newMail = getNewMessage();
+            addEmailToTable(newMail);
+        } 
 
             // create e-mail counter
             var number = emails.length;
@@ -67,27 +72,9 @@
             var numberText = document.createTextNode(number);
             counter.appendChild(numberText);
 
-            //create interval for new geemails
-            var newMail = getNewMessage();
-            console.log(newMail);
 
-            var sender = newMail.sender;
-            var subject = newMail.subject;
-            var date = newMail.date;
-            var body = newMail.body;
-
-            var textSender = document.createTextNode(sender);
-            var textSubject = document.createTextNode(subject);
-            var textDate = document.createTextNode(date);
-            var textBody = document.createTextNode(body);
-
-            var inbox = document.getElementById("inbox");
-            var createRow = document.createElement("TR");
-            var createCell = document.createElement("TD");
-
-            inbox.appendChild(createRow).appendChild(createCell).appendChild(textSender);
-
-            // setInterval(newMail, 500);
+            //Push a new email every 2 seconds
+            //setInterval(pushNewEmail, 2000);
 
       };
     </script>
