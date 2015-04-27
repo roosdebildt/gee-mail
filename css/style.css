@@ -24,6 +24,6 @@ td:nth-child(2){
 	width: 50%;
 }
 
-.titles {
+#titles {
 	font-weight: bold;
 }
