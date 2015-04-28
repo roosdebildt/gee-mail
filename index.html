@@ -5,10 +5,10 @@
     <script>
       window.onload = function(){
         // ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE. 
-        // for simplicity, store window.geemails in a variable
-        var emails = window.geemails;
 
+        //for re-use, I created a function that creates a table and adds each new e-mail as a row
         var addEmailToTable = function(oneEmail) {
+
             //make the emails appear in a table
             var tableRow = document.createElement("TR");
 
@@ -22,14 +22,15 @@
             subjectCell.innerHTML = oneEmail.subject;
             var subjectAppend = tableRow.appendChild(subjectCell);
 
-            //add body
+            //add body as a row beneath the subject
             var bodyRow = document.createElement("TR");
             bodyRow.innerHTML = oneEmail.body;
             bodyRow.classList.add("mailBody");
             bodyRow.style.display = "none";
             subjectAppend.appendChild(bodyRow);
 
-            //trying to target the subjects and make the body of the message show up below the subject. but I don't really know how to target the subject without the  getElementById...
+            //here, I added the on-click event of showing and hiding the full message when the subject is clicked on
+            // I decided to add a class and add style to the class to make it appear/dissappear
             subjectAppend.addEventListener("click", function(){
                 console.log("this works");
                     var bodies = this.getElementsByClassName("mailBody");
@@ -45,41 +46,42 @@
             dateCell.innerHTML = oneEmail.date;
             tableRow.appendChild(dateCell);
 
-
             //create a row for each email
             document.getElementById("inbox").appendChild(tableRow);
         }
 
+        //for simplicity, store window.geemails in a variable
+        var emails = window.geemails;
 
-        // access data from the emails variable
+        //access data from the emails variable
         for(var i=0; i<emails.length; i++){
-        	
             var mail = (emails[i]);
-
             addEmailToTable(mail);
-
         }
 
-        //This function pushes a new email into the list/table
+        //this function pushes a new email into the list/table
         var pushNewEmail = function() {
             var newMail = getNewMessage();
             addEmailToTable(newMail);
+            //push new email to the window.geemails array so that the counter will change too
             window.geemails.push(newMail);
             updateCounter();
         } 
 
+        //function that counts the e-mails
         var updateCounter = function() {
             var number = emails.length;
             var counter = document.getElementById("counter");
             counter.innerHTML = number;
         }
 
+        //run counter-funtion so that it is executed also before new e-mails are pushed
         updateCounter();
 
-            //Push a new email every 2 seconds
-            //setInterval(pushNewEmail, 2000);
-
+        //Push a new email every 10 seconds
+        setInterval(pushNewEmail, 10000);
       };
+      
     </script>
 	</head>
 	<body>

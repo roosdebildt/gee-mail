@@ -24,6 +24,8 @@ td:nth-child(2){
 	width: 50%;
 }
 
-#titles {
+/* MODULES */
+
+.titles {
 	font-weight: bold;
 }
