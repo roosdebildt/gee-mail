@@ -4,7 +4,7 @@ GeeMail is a coding exercise meant to simulate an e-mail web application inbox.
 
 ## Description
 
-With this coding challenge I simulated of a little known e-mail web application might have heard of before.
+With this coding challenge I simulated of a little known e-mail web application you might have heard of before.
 A basic mail generator script was provided and my goal was to consume that data and build out UI elements to display that data along with populating new messages and some other basic functionality.
 
 ## Objectives
