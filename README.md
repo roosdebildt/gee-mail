@@ -1,6 +1,7 @@
 # GeeMail 
 
-GeeMail is a coding exercise meant to simulate an e-mail web application inbox.
+GeeMail is a coding exercise meant to simulate an e-mail web application inbox with Vanilla JavaScript only.
+This exercise is for practicing vanilla Js and not for making things pretty :)
 
 ## Description
 
